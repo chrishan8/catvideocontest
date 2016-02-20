@@ -33,28 +33,35 @@ app.controller('navcontroller', ['$scope', '$location', function($scope, $locati
 
 	var min = 0;
 	var max = 2;
+	var videoindex = Array.apply(null, Array(max)).map(function (_, i) {return i;});
 	
 	getRandomInt = function (min, max) {
   		return Math.floor(Math.random() * (max - min)) + min;
 	}
 
-	if($scope.videos.length == max) {
-		$scope.vidone = $scope.videos[getRandomInt(min,max)];
-  		$scope.vidtwo = $scope.videos[getRandomInt(min,max)];
-  		$scope.vidyouone = $sce.trustAsHtml($scope.vidone.url);
-  		$scope.vidyoutwo = $sce.trustAsHtml($scope.vidtwo.url);
-	}
+	$scope.showvote = false;
 
 	$scope.randvid = function() {
-  		$scope.vidone = $scope.videos[getRandomInt(min,max)];
-  		$scope.vidtwo = $scope.videos[getRandomInt(min,max)];
+		var one = getRandomInt(min,videoindex.length);
+		var index = videoindex.indexOf(one);
+		if (index > -1) {
+    		videoindex.splice(index, 1);
+		}
+		var two = getRandomInt(min,videoindex.length);
+  		$scope.vidone = $scope.videos[one];
+  		$scope.vidtwo = $scope.videos[two];
+  		console.log($scope.vidone);
+  		console.log($scope.vidtwo);
   		$scope.vidyouone = $sce.trustAsHtml($scope.vidone.url);
   		$scope.vidyoutwo = $sce.trustAsHtml($scope.vidtwo.url);
   		while ($scope.vidone == $scope.vidtwo) {
-  			$scope.vidtwo = $scope.videos[getRandomInt(min,max)];
+  			two = getRandomInt(min,videoindex.length);
+  			$scope.vidtwo = $scope.videos[two];
   			$scope.vidyoutwo = $sce.trustAsHtml($scope.vidtwo.url);
   		}
+  		console.log(videoindex);
   		console.log($scope.vidone);
   		console.log($scope.vidtwo);
 	}
+
 }])
