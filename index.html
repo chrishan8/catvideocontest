@@ -6,48 +6,40 @@
 		<!-- BEGIN ANGULAR SCRIPTS -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-animate.js"></script>
-		<!-- END ANGULAR SCRIPTS -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
 		<!-- BEGIN DEVELOPER JAVASCRIPT -->
 		<script type="text/javascript" src="main.js"></script>
-		<!-- END DEVELOPER JAVASCRIPT -->
-		<!-- BEGIN BOOTSTRAP SCRIPT -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<!-- END BOOTSTRAP SCRIPT -->
+		<script type="text/javascript" src="route.js"></script>
+		<!-- BEGIN BOOTSTRAP DEPENDENCIES -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.js"></script>
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/css/tether.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 		<!-- BEGIN DEVELOPER CSS -->
 		<link rel="stylesheet" href="main.css">
-		<!-- END DEVELOPER CSS -->
 	</head>
-	<body ng-controller="catcontroller">
+	<body ng-controller="navcontroller">
 		<div class="container">
 			<div class="jumbotron">
-				<h1>Submit Your Cutest Cat Videos</h1>
-				<p>Prize for first place winnner is $2.5 million!</p>
+				<h1>Cutest Cat in the Universe Contest</h1>
+				<img class="jumbonyan" src="nyan.png">
 			</div>
-			<form ng-submit="submit()" role="form">
-  				<div class="form-group">
-    				<label for="name">Name:</label>
-    				<input ng-model="newEntry.name" type="text" class="form-control" id="name">
-  				</div>
- 				<div class="form-group">
-    				<label for="url">Youtube Embed URL:</label>
-    				<input ng-model="newEntry.url" type="text" class="form-control" id="url">
-  				</div>
-  				<div class="form-group">
-    				<label for="title">Title:</label>
-    				<input ng-model="newEntry.title" type="text" class="form-control" id="title">
-  				</div>
-  				<div class="form-group">
-    				<label for="desc">Description:</label>
-    				<input ng-model="newEntry.desc" type="text" class="form-control" id="desc">
-  				</div>
-				<input type="submit" class="btn btn-success">
-			</form>
-			<ul ng-repeat="video in videos">
-				<li>{{video.name}}</li>
-				<li>{{video.url}}</li>
-				<li>{{video.title}}</li>
-				<li>{{video.desc}}</li>
-			</ul>
+			<div class="navbar navbar-dark bg-inverse">
+				<div class="container-fluid">
+					  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#catnav">&#9776;</button>
+      				<div class="collapse navbar-toggleable-xs" id="catnav">
+	      				<ul class="nav navbar-nav">
+	      					<li class="nav-item" ng-class="{ active: isActive('/home')}"><a class="nav-link" class="nav-item" href="#/home">Home</a></li>
+	      					<li class="nav-item" ng-class="{ active: isActive('/submit')}"><a class="nav-link" href="#/submit">Submit Entry</a></li>
+	      					<li class="nav-item" ng-class="{ active: isActive('/view')}"><a class="nav-link" href="#/view">Rate</a></li>
+	      					<li class="nav-item" ng-class="{ active: isActive('/winner')}"><a class="nav-link" href="#/winner">Winner</a></li>
+	      				</ul>
+      				</div>
+      			</div>
+      		</div>
+      		<div ng-view></div>
 		</div>
 	</body>
 </html>

@@ -1,0 +1,24 @@
+<br>
+<div class="centered" ng-show="full()">
+  <h1 class="highlight">THIS CONTEST IS OVER RIGHT MEOW</h1>
+  <h1 class="highlight">THANKS FOR PLAYING!</h1>
+</div>
+<form ng-submit="submit()" role="form">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input ng-model="newEntry.name" type="text" class="form-control" id="name">
+  </div>
+  <div class="form-group">
+    <label for="url">Youtube Embed HTML:</label>
+    <input ng-model="newEntry.url" type="text" class="form-control" id="url">
+  </div>
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input ng-model="newEntry.title" type="text" class="form-control" id="title">
+  </div>
+  <div class="form-group">
+    <label for="desc">Description:</label>
+    <input ng-model="newEntry.desc" type="text" class="form-control" id="desc">
+  </div>
+  <input type="submit" class="btn btn-success" ng-class="{ 'disabled': full()}">
+</form><br><br>

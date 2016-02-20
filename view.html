@@ -1,0 +1,24 @@
+<br><br>
+<h1 ng-show="!full()" class="highlight centered">SUBMISSION PERIOD IS NOT OVER RIGHT MEOW</h1>
+<div class="card-group" ng-show="full()">
+	<div class="card">
+	  <div class="card-img-top" ng-bind-html="vidyouone"></div>
+	  <div class="card-block text-xs-center">
+	    <h4 class="card-title">{{vidone.title}}</h4>
+	    <p class="card-text">{{vidone.desc}}</p>
+	    <button class="btn btn-success" ng-click="randvid()">Meeee-ow</button>
+	  </div>
+	</div>
+	<div class="card ratediv">
+		<h1 class="rate">VS</h1>
+	</div>
+	<div class="card">
+	  <div class="card-img-top" ng-bind-html="vidyoutwo"></div>
+	  <div class="card-block text-xs-center">
+	    <h4 class="card-title">{{vidtwo.title}}</h4>
+	    <p class="card-text">{{vidtwo.desc}}</p>
+	    <button class="btn btn-success" ng-click="randvid()">Purrrrty</button>
+	  </div>
+	</div>
+</div>
+<br><br><br>

@@ -1,0 +1,89 @@
+body {
+	background-color: #263238;
+	color:white;
+	cursor: url(catpawcursor.png), auto;
+}
+
+.jumbotron {
+	height: 500px;
+	background: url("/spacecat-bg.jpg");
+	background-size: cover;
+	color:white;
+	margin-bottom:0;
+	border-radius:0 !important;
+}
+
+.jumbonyan {
+	width: 8%;
+    position: relative;
+    top: 150px;
+    transform: rotate(-25deg);
+    left: 150px;
+}
+
+.highlight {
+	color:yellow;
+}
+
+.navbar.navbar-inverse {
+	border-radius:0 0 4px 4px;
+}
+
+a:hover {
+	cursor: url(catpawcursor.png), auto;
+}
+
+.on {
+	background-color: rgba(255,255,0,0.8);
+}
+
+/*HOME*/
+.centered {
+	text-align:center;
+}
+
+.preciouscat {
+	width:60%;
+	border:thin solid black;
+	box-shadow: 10px 10px 5px black;
+}
+
+.modal-header, .modal-body, .modal-footer {
+	background-color:#263238;
+}
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 500px;
+    overflow-y: auto;
+}
+
+.tab {
+	margin-left:8px;
+}
+
+.generalcon {
+	list-style-type:lower-alpha;
+}
+
+.card {
+	color:black;
+	width:420px;
+	margin:0;
+}
+
+.card.ratediv {
+	position:relative;
+	width:33.3333333%;
+	background-color:#263238;
+	border:none;
+	color:white;
+}
+
+.rate {
+	position:absolute;
+	top:30%;
+	left:42%;
+}
