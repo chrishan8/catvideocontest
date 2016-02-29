@@ -1,0 +1,23 @@
+<br><br>
+<h1>Cutest Cat Rankings</h1><br>
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Rating</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="video in videos | orderBy: -rating">
+				<td>{{video.name}}</td>
+				<td>{{video.title}}</td>
+				<td>{{video.desc}}</td>
+				<td>{{video.rating}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br><br>

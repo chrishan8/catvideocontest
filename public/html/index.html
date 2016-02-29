@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="cat">
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>Cutest Cat Videos</title>
+		<!-- BEGIN ANGULAR SCRIPTS -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-animate.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+		<!-- BEGIN DEVELOPER JAVASCRIPT -->
+		<script type="text/javascript" src="public/js/main.js"></script>
+		<script type="text/javascript" src="public/js/route.js"></script>
+		<!-- BEGIN BOOTSTRAP DEPENDENCIES -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.js"></script>
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/css/tether.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+		<!-- BEGIN DEVELOPER CSS -->
+		<link rel="stylesheet" href="public/css/main.css">
+	</head>
+	<body ng-controller="navcontroller">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Cutest Cat in the Universe Contest</h1>
+				<img class="jumbonyan" src="public/img/nyan.png">
+			</div>
+			<div class="navbar navbar-dark bg-inverse">
+				<div class="container-fluid">
+					  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#catnav">&#9776;</button>
+      				<div class="collapse navbar-toggleable-xs" id="catnav">
+	      				<ul class="nav navbar-nav">
+	      					<li class="nav-item" ng-class="{ active: isActive('/home')}"><a class="nav-link" class="nav-item" href="#/">Home</a></li>
+	      					<li class="nav-item" ng-class="{ active: isActive('/submit')}"><a class="nav-link" href="#/submit">Submit Entry</a></li>
+	      					<li class="nav-item" ng-class="{ active: isActive('/view')}"><a class="nav-link" href="#/view">Rate</a></li>
+	      					<li class="nav-item" ng-class="{ active: isActive('/winner')}"><a class="nav-link" href="#/winner">Winner</a></li>
+	      				</ul>
+      				</div>
+      			</div>
+      		</div>
+      		<div ng-view></div>
+		</div>
+	</body>
+</html>

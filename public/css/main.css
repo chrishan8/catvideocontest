@@ -1,0 +1,101 @@
+body {
+	background-color: #263238;
+	color:white;
+	cursor: url(../img/catpawcursor.png), auto;
+}
+
+.jumbotron {
+	height: 500px;
+	background: url("../img/spacecat-bg.jpg");
+	background-size: cover;
+	color:white;
+	margin-bottom:0;
+	border-radius:0 !important;
+}
+
+.jumbonyan {
+	width: 8%;
+    position: relative;
+    top: 150px;
+    transform: rotate(-25deg);
+    left: 150px;
+}
+
+.highlight {
+	color:yellow;
+}
+
+.navbar.navbar-inverse {
+	border-radius:0 0 4px 4px;
+}
+
+a:hover {
+	cursor: url(../img/catpawcursor.png), auto;
+}
+
+.on {
+	background-color: rgba(255,255,0,0.8);
+}
+
+/*HOME*/
+.centered {
+	text-align:center;
+}
+
+.preciouscat {
+	width:60%;
+	border:thin solid black;
+	box-shadow: 10px 10px 5px black;
+}
+
+.modal-header, .modal-body, .modal-footer {
+	background-color:#263238;
+}
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 450px;
+    overflow-y: auto;
+}
+
+.tab {
+	margin-left:8px;
+}
+
+.generalcon {
+	list-style-type:lower-alpha;
+}
+
+.card {
+	color:black;
+	margin:0;
+}
+
+.ratediv {
+	margin:auto;
+	padding-top:15%;
+	padding-bottom:15%;
+}
+
+.rate {
+	text-align:center;
+	position:relative;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
