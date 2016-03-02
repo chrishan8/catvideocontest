@@ -69,10 +69,9 @@ app.controller('navcontroller', ['$scope', '$location', function($scope, $locati
 	$scope.indextwo = 0;
 
 	$scope.randvid = function() {
-		if (videoindex.length >= 2) {
+		if (videoindex.length > 2) {
 			var one = getRandomInt(min, max);
 			$scope.indexone = videoindex.indexOf(one);
-			console.log($scope.indexone);
 			while ($scope.indexone == -1) {
     			one = getRandomInt(min, max);
     			$scope.indexone = videoindex.indexOf(one);
@@ -85,18 +84,15 @@ app.controller('navcontroller', ['$scope', '$location', function($scope, $locati
 			}
   			$scope.vidone = $scope.videos[one];
   			$scope.vidtwo = $scope.videos[two];
-  			console.log($scope.vidone);
-  			console.log($scope.vidtwo);
+  			console.log(one);
+  			console.log(two);
   			$scope.vidyouone = $sce.trustAsHtml($scope.vidone.url);
-  			while ($scope.vidone == $scope.vidtwo) {
-  				two = getRandomInt(min,max);
-  				$scope.indextwo = videoindex.indexOf(two);
-  				while ($scope.indextwo == -1) {
-    				two = getRandomInt(min, max);
-    				$scope.indextwo = videoindex.indexOf(two);
-				}
+  			while ($scope.vidone == $scope.vidtwo || $scope.indextwo == -1) {
+    			two = getRandomInt(min, max);
+    			$scope.indextwo = videoindex.indexOf(two);
+    			$scope.vidtwo = $scope.videos[two];
+    			console.log('not stuck');
 			}
-  			$scope.vidtwo = $scope.videos[two];
   			$scope.vidyoutwo = $sce.trustAsHtml($scope.vidtwo.url);	
 		}
 	}
@@ -105,7 +101,7 @@ app.controller('navcontroller', ['$scope', '$location', function($scope, $locati
 		$http.get('/api/votes')
 			.then(function(returnData) {
 				$scope.totalvotes = returnData.data[0];
-				console.log($scope.totalvotes)
+				console.log($scope.totalvotes.totalvotes);
 			})
 	}
 
@@ -120,6 +116,13 @@ app.controller('navcontroller', ['$scope', '$location', function($scope, $locati
 		video.vote++;
 		console.log($scope.totalvotes.totalvotes);
 		video.rating = (video.vote/$scope.totalvotes.totalvotes);
+		for (var i = 0; i < $scope.videos.length; i++) {
+			$scope.videos[i].rating = ($scope.videos[i].vote/$scope.totalvotes.totalvotes);
+			$http.post('/api/entries/' + $scope.videos[i]._id, $scope.videos[i])
+				.then(function(returnData) {
+					console.log('changed');
+				})
+		}
 		$http.post('/api/entries/' + video._id, video)
 			.then(function(returnData) {
 				console.log('+1 vote');
@@ -130,11 +133,13 @@ app.controller('navcontroller', ['$scope', '$location', function($scope, $locati
 
 	$scope.removeoption = function(num) {
 		videoindex.splice(num, 1);
+		console.log(videoindex);
 	}
 
-	$scope.voteover = function() {
+	$scope.isvoteover = function() {
+		$scope.voteover = false;
 		if (videoindex.length < 2) {
-			$scope.showvote = false;
+			$scope.voteover = true;
 		}
 	}
 }])

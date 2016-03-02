@@ -1,14 +1,14 @@
 <br><br>
 <h1 ng-show="!full()" class="highlight centered">SUBMISSION PERIOD IS NOT OVER RIGHT MEOW</h1>
-<input type="button" class="btn btn-lg btn-primary" ng-click="randvid(); showvote=true" value="Vote Now" ng-show="full(); showvote==false">
-<div class="row" ng-show="showvote">
+<input type="button" class="btn btn-lg btn-primary" ng-click="randvid(); showvote=true" value="Vote Now" ng-show="full() && !showvote">
+<div class="row" ng-show="showvote && !voteover">
 	<div class="col-sm-5 col-md-5 col-lg-5">
 		<div class="card">
 		  <div class="card-img-top video-container" ng-bind-html="vidyouone"></div>
 		  <div class="card-block text-xs-center">
 		    <h4 class="card-title">{{vidone.title}}</h4>
 		    <p class="card-text">{{vidone.desc}}</p>
-		    <button class="btn btn-success" ng-click="randvid(); rate(vidone); removeoption(indexone); voteover()">Meeee-ow</button>
+		    <button class="btn btn-success" ng-click="randvid(); rate(vidone); removeoption(indexone); isvoteover()">Meeee-ow</button>
 		  </div>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 		  <div class="card-block text-xs-center">
 		    <h4 class="card-title">{{vidtwo.title}}</h4>
 		    <p class="card-text">{{vidtwo.desc}}</p>
-		    <button class="btn btn-success" ng-click="randvid(); rate(vidtwo); removeoption(indextwo); voteover()">Purrrrty</button>
+		    <button class="btn btn-success" ng-click="randvid(); rate(vidtwo); removeoption(indextwo); isvoteover()">Purrrrty</button>
 		  </div>
 		</div>
 	</div>
